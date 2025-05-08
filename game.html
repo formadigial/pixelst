@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameZone | Home</title>
+  <style>
+
+  /* style.css */
+
+  /* Reset & Base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0e0e10;
+    color: #f0f0f0;
+    line-height: 1.6;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+  }
+
+  /* Header */
+  header {
+    background-color: #1a1a1d;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .logo {
+    font-size: 1.8rem;
+    color: #00bfff;
+  }
+  nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  nav a:hover {
+    color: #1e90ff;
+  }
+
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(to right, #121217, #0e0e10);
+  }
+  .hero h1 {
+    font-size: 3rem;
+    color: #00bfff;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+  }
+  .btn {
+    background: #1e90ff;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    transition: background 0.3s;
+  }
+  .btn:hover {
+    background: #00bfff;
+  }
+
+  /* Sections */
+  .section {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #00bfff;
+  }
+
+  /* Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  .card {
+    background: #1a1a1d;
+    border-radius: 12px;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 191, 255, 0.2);
+  }
+  .card h3 {
+    margin-top: 1rem;
+    color: #fff;
+  }
+  .download-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #1e90ff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+  }
+  .download-btn:hover {
+    background: #00bfff;
+  }
+
+  /* YouTube Section */
+  .video-wrapper {
+    max-width: 700px;
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Footer */
+  footer {
+    background: #1a1a1d;
+    color: #888;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    /* Header */
+    header {
+      padding: 1rem 1.5rem;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.5rem; /* Smaller logo on mobile */
+    }
+
+    /* Navbar Links */
+    nav ul {
+      display: flex;
+      gap: 1rem; /* Reduced gap between links */
+      list-style: none;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    /* Navbar Link Font Size */
+    nav ul li a {
+      font-size: 0.9rem; /* Smaller text for navigation links */
+    }
+
+    /* Ensure navigation links stay on the right */
+    nav ul li {
+      margin-left: auto;
+    }
+
+    /* Hero Section */
+    .hero h1 {
+      font-size: 2.2rem; /* Smaller font size for heading on mobile */
+    }
+
+    .hero p {
+      font-size: 1rem; /* Smaller description text */
+    }
+
+    /* Button */
+    .btn {
+      padding: 0.6rem 1.2rem; /* Smaller buttons */
+    }
+  }
+
+  .logo img {
+  width: 80px; /* Adjust the width as needed */
+  height: auto; /* Maintains aspect ratio */
+}
+
+
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="logo.png"></div>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="#mods">Mods</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#youtube">YouTube</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" data-aos="fade-up">
+    <h1>Welcome to Pixel ST </h1>
+    <p>Explore the best mods, trending games, and awesome videos!</p>
+    <a href="#mods" class="btn">Get Started</a>
+  </section>
+
+  <section id="mods" class="section" data-aos="fade-up">
+    <h2>🔥 Featured Mods</h2>
+    <div class="card-grid">
+        <div class="card">
+            <img src="mod1.jpg" alt="Ultra Graphics Mod">
+            <h3>Ultra Graphics Mod</h3>
+            <a href="files/ronaldo2008.cpk" class="download-btn" download>Download</a>
+          </div>
+      <div class="card">
+        <img src="mod2.jpg" alt="Mod 2">
+        <h3>Speed Boost Mod</h3>
+        <a href="files/OF PES 2018 al 2025 V2 by LAqP.rar" class="download-btn" download>Download</a>
+      </div>
+      <div class="card">
+        <img src="mod3.jpg" alt="Mod 3">
+        <h3>Infinite Ammo Mod</h3>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="games" class="section" data-aos="fade-up">
+    <h2>🎯 Games to Play</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="game1.jpg" alt="Game 1">
+        <h3>Cyber Drift</h3>
+      </div>
+      <div class="card">
+        <img src="game2.jpg" alt="Game 2">
+        <h3>Retro Arena</h3>
+      </div>
+      <div class="card">
+        <img src="game3.jpg" alt="Game 3">
+        <h3>Space WarZ</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="youtube" class="section" data-aos="fade-up">
+    <h2>📺 Latest Video</h2>
+    <div class="video-wrapper">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <a href="https://youtube.com/yourchannel" target="_blank" class="btn">Subscribe</a>
+  </section>
+
+  <footer id="contact">
+    <p>&copy; 2025 GameZone | All rights reserved.</p>
+    <p>Contact: contact@gamezone.com</p>
+  </footer>
+
+  <script>
+    AOS.init();
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Mobile Menu Toggle
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
