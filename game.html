@@ -15,10 +15,11 @@
     box-sizing: border-box;
   }
   body {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Special Gothic Condensed One', sans-serif;
     background-color: #0e0e10;
     color: #f0f0f0;
     line-height: 1.6;
+    letter-spacing: 0.1em;
   }
   a {
     text-decoration: none;
@@ -97,19 +98,42 @@
     gap: 2rem;
   }
   .card {
-    background: #1a1a1d;
-    border-radius: 12px;
-    padding: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+  background: #1a1a1d;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 250px; /* Fixed width for uniform layout */
+  height: 400px; /* Ensures all cards are the same height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: auto;
+}
+
+.card img {
+  width: 100%;
+  height: 200px; /* Controls image size */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
   .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 191, 255, 0.2);
   }
-  .card h3 {
-    margin-top: 1rem;
-    color: #fff;
-  }
+ .card h3 {
+  margin-top: 1rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif; /* Change this to any font you like */
+  font-size: 1rem; /* Adjust size */
+  font-weight: 600; /* Optional: boldness */
+  text-align: center;
+}
+
+ 
+
+
   .download-btn {
     display: inline-block;
     margin-top: 1rem;
@@ -198,6 +222,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Poppins:wght@500&family=Rubik:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <header>
@@ -222,11 +249,11 @@
     <h2>🔥 Featured Mods</h2>
     <div class="card-grid">
         <div class="card">
-            <img src="mod1.jpg" alt="Ultra Graphics Mod">
-            <h3>Ultra Graphics Mod</h3>
-            <a href="files/ronaldo2008.cpk" class="download-btn" download>Download</a>
+            <img src="cr7.png" alt="Ultra Graphics Mod">
+            <h3>Cristiano Ronaldo 2017 Face Mod <br> (Pes 21 / FL25)</h3>
+            <a href="https://drive.google.com/file/d/1gA6I6nH5HNVTlayT7fkNew-T3CsBsrP5/view?usp=drive_link" class="download-btn">Download</a>
           </div>
-      <div class="card">
+     <!-- <div class="card">
         <img src="mod2.jpg" alt="Mod 2">
         <h3>Speed Boost Mod</h3>
         <a href="files/OF PES 2018 al 2025 V2 by LAqP.rar" class="download-btn" download>Download</a>
@@ -236,10 +263,10 @@
         <h3>Infinite Ammo Mod</h3>
         <a href="#" class="download-btn">Download</a>
       </div>
-    </div>
+    </div>  -->
   </section>
 
-  <section id="games" class="section" data-aos="fade-up">
+ <!-- <section id="games" class="section" data-aos="fade-up">
     <h2>🎯 Games to Play</h2>
     <div class="card-grid">
       <div class="card">
@@ -255,20 +282,20 @@
         <h3>Space WarZ</h3>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section id="youtube" class="section" data-aos="fade-up">
     <h2>📺 Latest Video</h2>
     <div class="video-wrapper">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://youtu.be/3cGgUxcnm0k" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
     </div>
-    <a href="https://youtube.com/yourchannel" target="_blank" class="btn">Subscribe</a>
+    <a href="https://www.youtube.com/channel/UCbGW9BAuN8tPUy9Ew2xN-yg" target="_blank" class="btn">Subscribe</a>
   </section>
 
-  <footer id="contact">
+ <!---- <footer id="contact">
     <p>&copy; 2025 GameZone | All rights reserved.</p>
     <p>Contact: contact@gamezone.com</p>
-  </footer>
+  </footer>-->
 
   <script>
     AOS.init();
