@@ -4,78 +4,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AR Sofa Viewer</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background: black;
-    }
-    canvas, video {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+    body, html { margin: 0; padding: 0; overflow: hidden; }
+    canvas { display: block; }
   </style>
 </head>
 <body>
-  <video id="camera" autoplay muted playsinline></video>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.148.0/examples/js/loaders/GLTFLoader.js"></script>
-  <script>
-    // Setup live camera background
-    const video = document.getElementById('camera');
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false })
-      .then(stream => {
-        video.srcObject = stream;
-      });// Create scene
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 100);
-camera.position.set(0, 1.6, 3); // Simulate eye level
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/examples/js/loaders/GLTFLoader.js"></script>  <script>
+    let scene, camera, renderer, model;
 
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.shadowMap.enabled = true;
-document.body.appendChild(renderer.domElement);
+    init();
 
-// Add light
-const light = new THREE.HemisphereLight(0xffffff, 0x444444);
-light.position.set(0, 1, 0);
-scene.add(light);
+    function init() {
+      scene = new THREE.Scene();
 
-// Load model
-const loader = new THREE.GLTFLoader();
-loader.load('sofa.glb', function (gltf) {
-  const model = gltf.scene;
-  model.position.set(0, -1.2, -2); // Position in front of camera
-  model.scale.set(1, 1, 1);
-  scene.add(model);
+      camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 100);
+      camera.position.z = 0;
 
-  // Optional: allow touch to rotate
-  let lastX = null;
-  window.addEventListener('touchmove', (e) => {
-    if (e.touches.length === 1) {
-      const deltaX = lastX !== null ? e.touches[0].clientX - lastX : 0;
-      model.rotation.y += deltaX * 0.01;
-      lastX = e.touches[0].clientX;
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      document.body.appendChild(renderer.domElement);
+
+      // Lights
+      const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
+      hemiLight.position.set(0, 20, 0);
+      scene.add(hemiLight);
+
+      const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+      dirLight.position.set(0, 10, 10);
+      scene.add(dirLight);
+
+      // Background camera feed
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          const video = document.createElement('video');
+          video.srcObject = stream;
+          video.play();
+
+          const videoTexture = new THREE.VideoTexture(video);
+          scene.background = videoTexture;
+        })
+        .catch(err => {
+          console.error("Camera not accessible", err);
+        });
+
+      // Load GLTF Model
+      const loader = new THREE.GLTFLoader();
+      loader.load('sofa.glb', function (gltf) {
+        model = gltf.scene;
+        model.position.set(0, -1.2, -3);  // Adjust to appear in front of camera
+        model.scale.set(2, 2, 2);         // Make it big enough to see
+        scene.add(model);
+        animate();
+      }, undefined, function (error) {
+        console.error("Error loading model:", error);
+      });
+
+      window.addEventListener('resize', onWindowResize, false);
     }
-  });
-  window.addEventListener('touchend', () => lastX = null);
 
-  animate();
-});
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
 
-function animate() {
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera);
-}
-
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
-
-  </script>
-</body>
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+  </script></body>
 </html>
