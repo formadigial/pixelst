@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Careline — Modern Healthcare, Delivered with Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.453.0/dist/umd/lucide.min.js" defer></script>
+<script src="script.js" defer></script></head>
+<body>
+<div class="strip" id="strip" aria-live="polite">Your everyday healthcare essentials, delivered with care.</div>
+<header class="nav" id="nav"><div class="wrap navin">
+<a class="logo" href="#home" aria-label="Careline home"><svg width="30" height="30" viewBox="0 0 32 32"><rect x="2" y="9" width="28" height="14" rx="7" transform="rotate(-35 16 16)" fill="#16A89A"/><path d="M16 4 4 16" stroke="#fff" stroke-width="2" transform="rotate(0)"/><circle cx="16" cy="16" r="4" fill="#fff"/></svg>Careline</a>
+<nav class="links" id="links" aria-label="Main"><a href="#home">Home</a><a href="#shop">Shop All</a><a href="#categories">Categories</a><a href="#popular">Best Sellers</a><a href="#faq">About &amp; FAQ</a></nav>
+<div class="acts">
+<form class="search" role="search" id="searchForm"><label class="sr" for="q">Search products</label><i data-lucide="search"></i><input id="q" type="search" placeholder="Search products"><button type="button" id="qClear" hidden aria-label="Clear search"><i data-lucide="x"></i></button></form>
+<button class="ib" id="wishBtn" aria-label="Show wishlist" aria-pressed="false"><i data-lucide="heart"></i><b id="wishCount">0</b></button>
+<button class="ib" id="cartBtn" aria-label="Open cart"><i data-lucide="shopping-bag"></i><b id="cartCount">0</b></button>
+<a class="btn" href="#shop">Shop Products</a>
+<button class="ib burger" id="burger" aria-label="Open menu" aria-expanded="false"><i data-lucide="menu"></i></button></div></div></header>
+
+<main id="home">
+<section class="hero wrap"><div class="htxt">
+<p class="badge">Carefully selected healthcare essentials</p>
+<h1>Better care starts with the <em>right essentials.</em></h1>
+<p class="lead">Everyday medical supplies, home monitoring devices and personal care products, all in one place.</p>
+<div class="ctas"><a class="btn" href="#shop">Explore Products</a><a class="btn ghost" href="#categories">Browse Categories</a></div>
+<ul class="trust"><li><i data-lucide="lock"></i>Secure checkout</li><li><i data-lucide="truck"></i>Convenient delivery</li><li><i data-lucide="headset"></i>Helpful support</li></ul></div>
+<div class="hvis" aria-hidden="true"><div class="disc"></div>
+<div class="tile t1"><i data-lucide="thermometer"></i></div><div class="tile t2"><i data-lucide="activity"></i></div><div class="tile t3"><i data-lucide="briefcase-medical"></i></div>
+<div class="float f1"><i data-lucide="sparkles"></i>Everyday care essentials</div></div></section>
+
+<section class="benefits"><div class="wrap grid4">
+<div><i data-lucide="badge-check"></i><h3>Carefully selected</h3><p>Products with clear details</p></div>
+<div><i data-lucide="shield-check"></i><h3>Secure checkout</h3><p>Demo in this preview</p></div>
+<div><i data-lucide="package"></i><h3>Convenient delivery</h3><p>Configurable shipping</p></div>
+<div><i data-lucide="message-circle"></i><h3>Helpful support</h3><p>Ask before you buy</p></div></div></section>
+
+<section class="wrap sec" id="categories"><h2>Find what you need, faster.</h2>
+<div class="cats" id="cats"></div></section>
+
+<section class="wrap sec" id="shop"><h2>Everyday essentials, carefully chosen.</h2>
+<div class="filters" id="filters" role="group" aria-label="Filter products"></div>
+<p class="note" id="status" aria-live="polite"></p>
+<div class="products" id="products"></div></section>
+
+<section class="promo"><div class="wrap"><h2>Small essentials. A big difference in everyday care.</h2><p>Stock your home with the basics before you need them.</p><a class="btn coral" href="#shop">Shop the essentials</a></div></section>
+
+<section class="wrap sec" id="popular"><h2>Popular picks</h2><div class="products" id="popGrid"></div></section>
+
+<section class="wrap sec why"><h2>Healthcare shopping, made simpler.</h2><div class="grid4">
+<div><i data-lucide="search"></i><h3>Easy discovery</h3><p>Search and filter together.</p></div>
+<div><i data-lucide="shopping-cart"></i><h3>Convenient ordering</h3><p>A cart that remembers you.</p></div>
+<div><i data-lucide="lock"></i><h3>Secure experience</h3><p>No card data stored here.</p></div>
+<div><i data-lucide="file-text"></i><h3>Clear product details</h3><p>Specs before you buy.</p></div></div></section>
+
+<section class="wrap sec narrow" id="faq"><h2>Questions, answered.</h2><div id="faqList"></div></section>
+
+<section class="wrap sec"><form class="news" id="news" novalidate><div><h2>Get care updates</h2><p>Occasional product news. We won't share your email.</p></div>
+<div class="nf"><label class="sr" for="email">Email address</label><input id="email" type="email" placeholder="you@example.com" autocomplete="email"><button class="btn">Subscribe</button><p id="newsMsg" role="status"></p></div></form></section>
+</main>
+
+<footer class="foot"><div class="wrap fgrid">
+<div><a class="logo light" href="#home">Careline</a><p>Modern healthcare essentials, delivered with care.</p></div>
+<div><h4>Shop</h4><a href="#shop">All products</a><a href="#categories">Categories</a><a href="#popular">Best sellers</a></div>
+<div><h4>Support</h4><a href="#faq">FAQ</a><a href="#news">Updates</a><a href="mailto:hello@example.com">hello@example.com</a></div>
+<div><h4>Legal</h4><a href="#home">Privacy Policy</a><a href="#home">Terms</a><a href="#home">Shipping &amp; Returns</a></div></div>
+<p class="wrap copy">© 2026 Careline. Demo store, replace placeholder details.</p></footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="cart" aria-label="Shopping cart" aria-hidden="true"><div class="dh"><h2>Your cart</h2><button class="ib" data-close aria-label="Close cart"><i data-lucide="x"></i></button></div><div class="dbody" id="cartItems"></div><div class="df"><div class="tot"><span>Total</span><b id="cartTotal">₹0</b></div><button class="btn block" id="checkout">Checkout (demo)</button></div></aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden></div>
+<div class="toast" id="toast" role="status"></div>
+</body></html>
