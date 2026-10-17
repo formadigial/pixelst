@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verdant — Everyday healthcare, kinder to the planet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.453.0/dist/umd/lucide.min.js" defer></script>
+<script src="script.js" defer></script></head>
+<body>
+<div class="strip" id="strip" aria-live="polite">Your everyday healthcare essentials, delivered with care.</div>
+<header class="nav" id="nav"><div class="wrap navin">
+<a class="logo" href="#home" aria-label="Verdant home"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 28C4 14 12 4 28 4c0 16-8 24-22 24z" fill="#C6F36B"/><path d="M6 26 20 12" stroke="#0F3D2E" stroke-width="2.2" stroke-linecap="round"/></svg>Verdant</a>
+<nav class="links" id="links" aria-label="Main"><a href="#home">Home</a><a href="#shop">Shop All</a><a href="#categories">Categories</a><a href="#popular">Best Sellers</a><a href="#faq">FAQ</a></nav>
+<div class="acts">
+<form class="search" role="search" id="searchForm"><label class="sr" for="q">Search products</label><i data-lucide="search"></i><input id="q" type="search" placeholder="Search products"><button type="button" id="qClear" hidden aria-label="Clear search"><i data-lucide="x"></i></button></form>
+<button class="ib" id="wishBtn" aria-label="Show wishlist" aria-pressed="false"><i data-lucide="heart"></i><b id="wishCount">0</b></button>
+<button class="ib" id="cartBtn" aria-label="Open cart"><i data-lucide="shopping-bag"></i><b id="cartCount">0</b></button>
+<a class="btn" href="#shop">Shop now</a>
+<button class="ib burger" id="burger" aria-label="Open menu" aria-expanded="false"><i data-lucide="menu"></i></button></div></div></header>
+
+<main id="home">
+<section class="hero wrap"><div class="htxt">
+<p class="badge"><i data-lucide="recycle"></i>Healthcare essentials with less waste</p>
+<h1>Care for yourself. Go <em>lighter</em> on the planet.</h1>
+<p class="lead">Reusable, refillable and plant-based picks for first aid, home monitoring and personal care.</p>
+<div class="ctas"><a class="btn" href="#shop">Explore products</a><a class="btn ghost" href="#categories">Browse categories</a></div></div>
+<div class="hvis" aria-hidden="true"><div class="leaf l1"><i data-lucide="thermometer"></i></div><div class="leaf l2"><i data-lucide="sprout"></i></div><div class="leaf l3"><i data-lucide="briefcase-medical"></i></div>
+<div class="float"><i data-lucide="recycle"></i>Reusable first</div></div></section>
+
+<section class="benefits"><div class="wrap grid4">
+<div><i data-lucide="recycle"></i><h3>Reusable picks</h3><p>Built to last longer</p></div>
+<div><i data-lucide="shield-check"></i><h3>Secure checkout</h3><p>Demo in this preview</p></div>
+<div><i data-lucide="package"></i><h3>Plastic-light packing</h3><p>Configurable policy</p></div>
+<div><i data-lucide="message-circle"></i><h3>Helpful support</h3><p>Ask before you buy</p></div></div></section>
+
+<section class="wrap sec" id="categories"><h2>Find what you need, faster.</h2><div class="cats" id="cats"></div></section>
+<section class="wrap sec" id="shop"><h2>Everyday essentials, thoughtfully chosen.</h2>
+<div class="filters" id="filters" role="group" aria-label="Filter products"></div><p class="note" id="status" aria-live="polite"></p><div class="products" id="products"></div></section>
+
+<section class="promo"><div class="wrap"><h2>Fewer disposables. The same everyday care.</h2><p>Swap a few single-use items for reusable ones.</p><a class="btn lime" href="#shop">Shop reusables</a></div></section>
+
+<section class="wrap sec" id="popular"><h2>Popular picks</h2><div class="products" id="popGrid"></div></section>
+
+<section class="wrap sec why"><h2>Healthcare shopping, made simpler.</h2><div class="grid4">
+<div><i data-lucide="search"></i><h3>Easy discovery</h3><p>Search and filter together.</p></div>
+<div><i data-lucide="shopping-cart"></i><h3>Convenient ordering</h3><p>A cart that remembers you.</p></div>
+<div><i data-lucide="lock"></i><h3>Secure experience</h3><p>No card data stored here.</p></div>
+<div><i data-lucide="file-text"></i><h3>Clear details</h3><p>Specs before you buy.</p></div></div></section>
+
+<section class="wrap sec narrow" id="faq"><h2>Questions, answered.</h2><div id="faqList"></div></section>
+<section class="wrap sec"><form class="news" id="news" novalidate><div><h2>Get greener care tips</h2><p>Occasional product news. We won't share your email.</p></div>
+<div class="nf"><label class="sr" for="email">Email address</label><input id="email" type="email" placeholder="you@example.com" autocomplete="email"><button class="btn lime">Subscribe</button><p id="newsMsg" role="status"></p></div></form></section>
+</main>
+
+<footer class="foot"><div class="wrap fgrid">
+<div><a class="logo light" href="#home">Verdant</a><p>Everyday healthcare, kinder to the planet.</p></div>
+<div><h4>Shop</h4><a href="#shop">All products</a><a href="#categories">Categories</a><a href="#popular">Best sellers</a></div>
+<div><h4>Support</h4><a href="#faq">FAQ</a><a href="#news">Updates</a><a href="mailto:hello@example.com">hello@example.com</a></div>
+<div><h4>Legal</h4><a href="#home">Privacy Policy</a><a href="#home">Terms</a><a href="#home">Shipping &amp; Returns</a></div></div>
+<p class="wrap copy">© 2026 Verdant. Demo store, replace placeholder details.</p></footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="cart" aria-label="Shopping cart" aria-hidden="true"><div class="dh"><h2>Your cart</h2><button class="ib" data-close aria-label="Close cart"><i data-lucide="x"></i></button></div><div class="dbody" id="cartItems"></div><div class="df"><div class="tot"><span>Total</span><b id="cartTotal">₹0</b></div><button class="btn block" id="checkout">Checkout (demo)</button></div></aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden></div>
+<div class="toast" id="toast" role="status"></div>
+</body></html>
